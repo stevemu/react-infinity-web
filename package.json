@@ -5,7 +5,7 @@
   "main": "src/server/index.js",
   "scripts": {
     "start": "nodemon src/server/index.js",
-    "build": "webpack --config config/webpack.prod.js",
+    "build": "source prod_env && webpack --config config/webpack.prod.js",
     "dev": "webpack-dev-server --content-base src/public --config config/webpack.dev.js --inline --hot --history-api-fallback"
   },
   "author": "Mu, Steve",
