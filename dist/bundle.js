@@ -56177,9 +56177,10 @@
 	  value: true
 	});
 	var isProduction = ("production") == "production";
+	var SERVER_PORT = (undefined) || 3000;
 
 	// root urls
-	var SERVER_URL = exports.SERVER_URL = isProduction ? "/" : "http://localhost:3000/";
+	var SERVER_URL = exports.SERVER_URL = isProduction ? "/" : "http://localhost:" + SERVER_PORT + "/";
 	var API_URL = exports.API_URL = SERVER_URL + "api/";
 
 	// endpoints

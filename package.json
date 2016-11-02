@@ -4,9 +4,9 @@
   "description": "",
   "main": "src/server/index.js",
   "scripts": {
-    "server": "cross-env SERVER_PORT=3000 && nodemon src/server/index.js",
+    "server": "cross-env PORT=3000 && nodemon src/server/index.js",
     "build-prod": "cross-env SERVER_PORT=3000 && webpack --config config/webpack.prod.js",
-    "dev-server": "cross-env PORT=3000 && webpack-dev-server --content-base src/public --config config/webpack.dev.js --inline --hot --history-api-fallback"
+    "dev-server": "cross-env SERVER_PORT=3000 && webpack-dev-server --content-base src/public --config config/webpack.dev.js --inline --hot --history-api-fallback"
   },
   "author": "Mu, Steve",
   "license": "MIT",
