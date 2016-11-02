@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "model": "Evoke",
+    "price": 4000,
+    "profileImage": "Evoke_black_1.png",
+    "images": {
+      "black": [
+        "Evoke_black_1.png",
+        "Evoke_black_2.png"
+      ],
+      "brown": [
+        "Evoke_brown_1.png",
+        "Evoke_brown_2.png"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "model": "Iyashi",
+    "price": 5000,
+    "profileImage": "Iyashi_black-black_1.jpg",
+    "images": {
+      "black_black": [
+        "Iyashi_black-black_1.jpg",
+        "Iyashi_black-black_2.jpg"
+      ],
+      "black_caramel": [
+        "Iyashi_black-caramel_1.jpg",
+        "Iyashi_black-caramel_2.jpg",
+        "Iyashi_black-caramel_3.jpg"
+      ],
+      "white_berryRed": [
+        "Iyashi_white-berryRed_1.jpg"
+      ]
+    }
+  }
+]
