@@ -1,7 +1,8 @@
 var isProduction = process.env.NODE_ENV == "production";
+var SERVER_PORT = process.env.SERVER_PORT || 3000;
 
 // root urls
-export const SERVER_URL = isProduction ? "/" : "http://localhost:3000/";
+export const SERVER_URL = isProduction ? "/" : `http://localhost:${SERVER_PORT}/`;
 export const API_URL = `${SERVER_URL}api/`;
 
 // endpoints
