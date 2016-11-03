@@ -48,13 +48,3 @@ app.set('port', (process.env.PORT || 3000));
 app.listen(app.get('port'), () => {
   console.log('Node app is running on port', app.get('port'));
 });
-
-
-// var server = https.createServer({
-//   key: fs.readFileSync(path.resolve(__dirname, "certs/localhost.key")),
-//   cert: fs.readFileSync(path.resolve(__dirname, "certs/localhost.crt")),
-//   passphrase: ""
-// }, app).listen(3000, ()=> {
-//   var port = server.address().port;
-//   console.log('Https server is listening at %s', port);
-// });
