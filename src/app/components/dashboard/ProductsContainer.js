@@ -52,7 +52,7 @@ class Products extends Component {
   render() {
     return (
       <div>
-        <h3>Product List 11111123123</h3>
+        <h3>Product List</h3>
         <div className="row">
           {this.productNodes}
         </div>

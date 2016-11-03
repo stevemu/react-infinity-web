@@ -18,6 +18,15 @@
 ```
 sudo npm install webpack -g
 sudo npm install cross-env -g
+sudo npm install nodemon -g
+```
+
+## For deploying to ubuntu
+
+```
+sudo apt-get update
+sudo apt-get install build-essential libssl-dev libffi-dev python-dev
+
 ```
 
 ## How to start developing
@@ -31,10 +40,13 @@ npm run dev-server
 
 Check your http://localhost:8080/
 
+## How to deploy to production
+
 to change the port, go to package.json and change 3000 to the port you desired
 
 ```
-export NODE_ENV="production"
+export NODE_ENV="production" 
+or source prod_env_var
 npm install
 npm run build-prod
 npm run server
