@@ -10,6 +10,7 @@
 * browser history fall-back
 * use SASS
 * backend port is specified in package.json via cross-env for easy change
+* whether the envrionment is production is specified at envrionment variable NODE_ENV=production||or_other
 
 
 ## Need Install global npm modules first
@@ -22,7 +23,7 @@ sudo npm install cross-env -g
 ## How to start developing
 
 ```
-export NODE_ENV=development (or just not "production")
+export NODE_ENV=not_production
 npm install
 npm run server
 npm run dev-server
