@@ -1,15 +1,19 @@
 'use strict';
 
 var express = require('express');
-var _ = require('underscore');
-const MOCK_PATH = '../../../mock/';
-
 var router = express.Router();
+var _ = require('underscore');
+
+
+const MOCK_PATH = '../../../mock/'; // todo: to be removed
+require('../db/seed'); // seed the db for sample data
+const dbUtil = require('../db/dbUtil');
 
 // products
 
 router.get('/products', function(req, res) {
-  var products = require(`${MOCK_PATH}products.json`);
+  // var products = require(`${MOCK_PATH}products.json`);
+  var products = dbUtil.getProducts();
   res.json(products);
 });
 
