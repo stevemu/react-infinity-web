@@ -26784,16 +26784,16 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Dashboard = function (_Component) {
-	  _inherits(Dashboard, _Component);
+	var InfinityTopNavBar = function (_Component) {
+	  _inherits(InfinityTopNavBar, _Component);
 
-	  function Dashboard() {
-	    _classCallCheck(this, Dashboard);
+	  function InfinityTopNavBar() {
+	    _classCallCheck(this, InfinityTopNavBar);
 
-	    return _possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (InfinityTopNavBar.__proto__ || Object.getPrototypeOf(InfinityTopNavBar)).apply(this, arguments));
 	  }
 
-	  _createClass(Dashboard, [{
+	  _createClass(InfinityTopNavBar, [{
 	    key: 'handleLogout',
 	    value: function handleLogout() {
 	      var path = '/login/';
@@ -26803,24 +26803,25 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'div',
+	        _reactBootstrap.Navbar,
 	        null,
 	        _react2.default.createElement(
-	          _reactBootstrap.Navbar,
+	          _reactBootstrap.Navbar.Header,
 	          null,
 	          _react2.default.createElement(
-	            _reactBootstrap.Navbar.Header,
+	            _reactBootstrap.Navbar.Brand,
 	            null,
 	            _react2.default.createElement(
-	              _reactBootstrap.Navbar.Brand,
-	              null,
-	              _react2.default.createElement(
-	                'a',
-	                { href: '#' },
-	                'Infinity Web Portal'
-	              )
+	              'a',
+	              { href: '#' },
+	              'Infinity Web Portal'
 	            )
 	          ),
+	          _react2.default.createElement(_reactBootstrap.Navbar.Toggle, null)
+	        ),
+	        _react2.default.createElement(
+	          _reactBootstrap.Navbar.Collapse,
+	          null,
 	          _react2.default.createElement(
 	            _reactBootstrap.Nav,
 	            { pullRight: true },
@@ -26830,16 +26831,39 @@
 	              'Log out'
 	            )
 	          )
-	        ),
+	        )
+	      );
+	    }
+	  }]);
+
+	  return InfinityTopNavBar;
+	}(_react.Component);
+
+	var Dashboard = function (_Component2) {
+	  _inherits(Dashboard, _Component2);
+
+	  function Dashboard() {
+	    _classCallCheck(this, Dashboard);
+
+	    return _possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).apply(this, arguments));
+	  }
+
+	  _createClass(Dashboard, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(InfinityTopNavBar, null),
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'container-fluid' },
+	          _reactBootstrap.Grid,
+	          null,
 	          _react2.default.createElement(
-	            'div',
-	            { className: 'row' },
+	            _reactBootstrap.Row,
+	            null,
 	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-md-2 col-sm-3 sidebar' },
+	              _reactBootstrap.Col,
+	              { md: 3, xs: 3 },
 	              _react2.default.createElement(
 	                'ul',
 	                { className: 'nav nav-sidebar' },
@@ -26882,8 +26906,8 @@
 	              )
 	            ),
 	            _react2.default.createElement(
-	              'div',
-	              { className: 'col-md-10 col-sm-9 main-area' },
+	              _reactBootstrap.Col,
+	              { md: 9, xs: 9 },
 	              this.props.children
 	            )
 	          )
@@ -45857,7 +45881,7 @@
 	        _react2.default.createElement(
 	          'h3',
 	          null,
-	          'Product List 11111123123'
+	          'Product List'
 	        ),
 	        _react2.default.createElement(
 	          'div',
@@ -56177,7 +56201,7 @@
 	  value: true
 	});
 	var isProduction = ("production") == "production";
-	var SERVER_PORT = (undefined) || 3000;
+	var SERVER_PORT = ("2000") || 3000;
 
 	// root urls
 	var SERVER_URL = exports.SERVER_URL = isProduction ? "/" : "http://localhost:" + SERVER_PORT + "/";
