@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 
-// function FieldGroup({ id, label, help, ...props }) {
-//   return (
-//     <FormGroup controlId={id}>
-//       <ControlLabel>{label}</ControlLabel>
-//       <FormControl {...props} />
-//       {help && <HelpBlock>{help}</HelpBlock>}
-//     </FormGroup>
-//   );
-// }
+function FieldGroup({ id, label, help, ...props }) {
+  return (
+    <FormGroup controlId={id}>
+      <ControlLabel>{label}</ControlLabel>
+      <FormControl {...props} />
+      {help && <HelpBlock>{help}</HelpBlock>}
+    </FormGroup>
+  );
+}
 
 class AddProduct extends Component {
   render() {
     return (
       <form action="">
         <h2>Add Product</h2>
-        {/*<FieldGroup*/}
-          {/*id="formControlsText"*/}
-          {/*type="text"*/}
-          {/*label="Text"*/}
-          {/*placeholder="Enter text"*/}
-        {/*/>*/}
+        <FieldGroup
+          id="formControlsText"
+          type="text"
+          label="Text"
+          placeholder="Enter text"
+        />
       </form>
       // <div className="">
       //   <h1>Add Product</h1>
