@@ -17,28 +17,18 @@ class AddProduct extends Component {
       <form action="">
         <h2>Add Product</h2>
         <FieldGroup
-          id="formControlsText"
           type="text"
-          label="Text"
-          placeholder="Enter text"
+          label="Model"
+          placeholder="model"
         />
+        <FieldGroup
+          type="text"
+          label="Price"
+          placeholder="price"
+        />
+        <Button bsStyle="primary" bsSize="large" block>Submit</Button>
+
       </form>
-      // <div className="">
-      //   <h1>Add Product</h1>
-      //
-      //   <div className="input-group">
-      //     <span className="input-group-addon" id="basic-addon1">Model: </span>
-      //     <input type="text" className="form-control" placeholder="Model" aria-describedby="basic-addon1" />
-      //   </div>
-      //   <div className="input-group">
-      //     <span className="input-group-addon" id="basic-addon1">Price: </span>
-      //     <input type="text" className="form-control" placeholder="Price" aria-describedby="basic-addon1" />
-      //   </div>
-      //
-      //   <h2>Picture</h2>
-      //   <Button bsStyle="primary" bsSize="large" block>Submit</Button>
-      //
-      // </div>
     );
   }
 }
