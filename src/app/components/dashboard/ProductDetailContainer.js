@@ -41,7 +41,7 @@ class ProductDetail extends Component {
     return (
       <div>
         <Link className="btn btn-primary btn-lg" to="/dashboard/products/">Back</Link>
-        <ProductImage className="product-img img-responsive" fileName={this.props.product.profileImage}/>
+        <ProductImage fileName={this.props.product.profileImage}/>
         <h2>Model: {this.props.product.model}</h2>
         <p>Product Id: {this.props.productId}</p>
         <p>Price: { this.props.product.price }</p>
