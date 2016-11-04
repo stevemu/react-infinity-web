@@ -44,19 +44,16 @@ Returns json data of all products
 * **Sample Call:**
 
    ```javascript
-     $.ajax({
-         url: "http://localhost:3000/api/products",
-         dataType: 'json',
-         success: function (data) {
-           console.log(data);
-           this.setState({
-             products: data
-           });
-         }.bind(this),
-         error: function (err) {
-           console.log('error: ', err);
-         }.bind(this)
-       });
+   with whatwg-fetch
+   fetch(PRODUCTS_ENDPOINT).then((res) => {
+      return res.json();
+    }).then((json) => {
+      this.setState({
+        products: json
+      });
+    }).catch((ex) => {
+      console.log(ex);
+    })
    ```
 
 * **Notes:**

@@ -14,20 +14,16 @@ class ProductsContainer extends Component {
   }
 
   componentDidMount() {
-    $.ajax({
-      url: `${PRODUCTS_ENDPOINT}`,
-      dataType: 'json',
-      success: function (data) {
-        this.setState({
-          products: data
-        });
-      }.bind(this),
-      error: function (err) {
-        console.log('error: ', err);
-      }.bind(this)
-    });
 
-
+    fetch(PRODUCTS_ENDPOINT).then((res) => {
+      return res.json();
+    }).then((json) => {
+      this.setState({
+        products: json
+      });
+    }).catch((ex) => {
+      console.log(ex);
+    })
 
   }
 

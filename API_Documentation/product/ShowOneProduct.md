@@ -44,19 +44,16 @@ Returns json data about a single product
 * **Sample Call:**
 
    ```javascript
-   $.ajax({
-      url: `http://localhost:3000/api/products/${this.props.params.productId}`,
-      dataType: 'json',
-      success: function(data) {
-        console.log(data);
-        this.setState({
-          product: data
-        });
-      }.bind(this),
-      error: function(err) {
-        console.log('error: ', err);
-      }.bind(this)
-    });
+
+    fetch(`${PRODUCTS_ENDPOINT}${this.props.params.productId}`).then((res) => {
+      return res.json();
+    }).then((json) => {
+      this.setState({
+        product: json
+      });
+    }).catch((ex) => {
+      console.log(ex);
+    })
    ```
 
 * **Notes:**
