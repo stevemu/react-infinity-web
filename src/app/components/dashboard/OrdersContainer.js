@@ -13,7 +13,7 @@ class Orders extends Component {
     return this.props.orders.map((order) => {
         return (
           <tr key={order.id}>
-            <th><Link to={`dashboard/orders/${order.id}`}>{order.id}</Link></th>
+            <th><Link to={`/dashboard/orders/${order.id}`}>{order.id}</Link></th>
             <th>{order.name}</th>
             <th>{order.itemId}</th>
             <th>{order.color}</th>

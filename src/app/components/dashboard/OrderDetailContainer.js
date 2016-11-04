@@ -43,6 +43,11 @@ class OrderDetail extends Component {
         <Link to="/dashboard/orders/">
           <Button className="back" bsStyle="primary" bsSize="small">Back to Order List</Button>
         </Link>
+        <p>Order Id: {this.props.order.id}</p>
+        <p>Item Id: {this.props.order.itemId}</p>
+        <p>Color: {this.props.order.color}</p>
+        <p>Price: {this.props.order.price}</p>
+        <p>Ship To: {this.props.order.shipTo}</p>
 
       </div>
     );
