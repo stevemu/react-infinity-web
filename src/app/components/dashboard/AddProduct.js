@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
-import { UPLOADS_ENDPOINT, UPLOADS_URL } from '../../util/urls';
+import { UPLOADS_ENDPOINT, UPLOADS_URL, PRODUCTS_ENDPOINT } from '../../util/urls';
 
 function FieldGroup({ id, label, help, ...props }) {
   return (
@@ -19,22 +19,35 @@ class AddProduct extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      uploadedFileNewFilename: null
+      profileImage: "",
+      model: "",
+      price: 0
     }
   }
 
+  onModelChange(e) {
+    this.setState({
+      model: e.target.value
+    })
+  }
+  onPriceChange(e) {
+    this.setState({
+      price: e.target.value
+    })
+  }
+
+
   handleImageUpload(image) {
-    let upload = request.post(UPLOADS_ENDPOINT).field('productImage', image);
+    let upload = request.post(UPLOADS_ENDPOINT).field('image', image);
     upload.end((err, response) => {
       if (err) {
         console.error(err);
       }
       if (response.body.newFilename !== '') {
         this.setState({
-          uploadedFileNewFilename: response.body.newFilename
+          profileImage: response.body.newFilename
         })
       }
-      console.log(response.body.newFilename);
     })
   }
 
@@ -43,25 +56,45 @@ class AddProduct extends Component {
   }
 
   productImagePreview() {
-    return this.state.uploadedFileNewFilename != null ?
-      <img className="img-responsive" src={`${UPLOADS_URL}${this.state.uploadedFileNewFilename}`} alt=""/>
+    return this.state.profileImage != "" ?
+      <img className="img-responsive" src={`${UPLOADS_URL}${this.state.profileImage}`} alt=""/>
       :
       <img />
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    const newProduct = this.state;
+    newProduct.price = parseFloat(newProduct.price);
+    console.log(newProduct);
+    fetch(PRODUCTS_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newProduct)
+    })
+  }
+
   render() {
     return (
-      <form action="">
+      <form onSubmit={this.handleSubmit.bind(this)}>
         <h2>Add Product</h2>
         <FieldGroup
+          id="model"
           type="text"
           label="Model"
           placeholder="model"
+          value={this.state.model}
+          onChange={this.onModelChange.bind(this)}
         />
         <FieldGroup
           type="text"
           label="Price"
           placeholder="price"
+          value={this.state.price}
+          onChange={this.onPriceChange.bind(this)}
         />
         <Dropzone
           multiple={false}
@@ -70,7 +103,9 @@ class AddProduct extends Component {
           <p>Drop the product image</p>
           {this.productImagePreview()}
         </Dropzone>
-        <Button bsStyle="primary" bsSize="large" block>Submit</Button>
+        <Button type="submit">
+          Submit
+        </Button>
       </form>
     );
   }

@@ -12,7 +12,7 @@
 * **Data Params**
 
 multipart:
-productImage: the file
+image: the file
   
 * **Success Response:**
 
