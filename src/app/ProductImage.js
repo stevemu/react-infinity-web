@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { UPLOADS_URL } from './util/urls';
 import { Image } from 'react-bootstrap';
 
+
 const ProductImage = props => {
   let imgPath = `${UPLOADS_URL}${props.fileName}`;
 
