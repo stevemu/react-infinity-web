@@ -1,10 +1,9 @@
-**Add one product**
+**upload a image**
 ----
-Post a json data about one new product
 
 * **URL**
 
-  <_/api/products_>
+  <_/api/image-upload_>
 
 * **Method:**
 
@@ -12,13 +11,8 @@ Post a json data about one new product
 
 * **Data Params**
 
-  ```json
-  {
-    "model": "it900",
-    "price": 900,
-    "profileImage": "1223423.png"
-  };
-  ```
+multipart:
+productImage: the file
   
 * **Success Response:**
 
@@ -26,10 +20,10 @@ Post a json data about one new product
     **Content:** 
     ```json
     {
-        "status": "success"
+        "status": "success",
+        "newFilename": "productImage-324234.png"
     }
     ```
- 
 
 * **Sample Call:**
 

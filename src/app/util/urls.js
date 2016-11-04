@@ -5,7 +5,10 @@ var SERVER_PORT = process.env.SERVER_PORT || 3000;
 export const SERVER_URL = isProduction ? "/" : `http://localhost:${SERVER_PORT}/`;
 export const API_URL = `${SERVER_URL}api/`;
 
-// endpoints
+// static
 export const UPLOADS_URL = `${SERVER_URL}uploads/`;
+
+// endpoints
+export const UPLOADS_ENDPOINT = `${API_URL}image-upload/`;
 export const PRODUCTS_ENDPOINT = `${API_URL}products/`;
 export const ORDERS_ENDPOINT = `${API_URL}orders/`;
