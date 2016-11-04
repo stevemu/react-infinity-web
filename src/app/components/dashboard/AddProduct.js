@@ -3,16 +3,7 @@ import { Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
 import { UPLOADS_ENDPOINT, UPLOADS_URL, PRODUCTS_ENDPOINT } from '../../util/urls';
-
-function FieldGroup({ id, label, help, ...props }) {
-  return (
-    <FormGroup controlId={id}>
-      <ControlLabel>{label}</ControlLabel>
-      <FormControl {...props} />
-      {help && <HelpBlock>{help}</HelpBlock>}
-    </FormGroup>
-  );
-}
+import FieldGroup from '../FieldGroup';
 
 class AddProduct extends Component {
 
