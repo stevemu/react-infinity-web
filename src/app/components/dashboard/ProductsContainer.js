@@ -26,6 +26,9 @@ class ProductsContainer extends Component {
         console.log('error: ', err);
       }.bind(this)
     });
+
+
+
   }
 
   render() {

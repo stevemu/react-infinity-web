@@ -22,9 +22,3 @@ module.exports.getProductById = (id) => {
 module.exports.addProduct = (product) => {
   db.get('products').push(product).value();
 };
-
-// module.exports = {
-//   db: db,
-//   getProducts: getProducts,
-//   getProductById: getProductById
-// };
