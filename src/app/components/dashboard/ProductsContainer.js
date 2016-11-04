@@ -5,35 +5,6 @@ import ProductImage from '../../ProductImage';
 import { PRODUCTS_ENDPOINT } from '../../util/urls';
 import {Row, Col} from 'react-bootstrap';
 
-class ProductsContainer extends Component {
-
-  constructor() {
-    super();
-    this.state = {
-      products: []
-    };
-  }
-
-  componentDidMount() {
-
-    fetch(PRODUCTS_ENDPOINT).then((res) => {
-      return res.json();
-    }).then((json) => {
-      this.setState({
-        products: json
-      });
-    }).catch((ex) => {
-      console.log(ex);
-    })
-
-  }
-
-  render() {
-    return <Products products={this.state.products} />
-  }
-
-}
-
 
 class Products extends Component {
 
@@ -64,5 +35,40 @@ class Products extends Component {
 Products.propTypes = {
   products: React.PropTypes.array
 };
+
+class ProductsContainer extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      products: null
+    };
+  }
+
+  componentDidMount() {
+
+    fetch(PRODUCTS_ENDPOINT).then((res) => {
+      return res.json();
+    }).then((json) => {
+      this.setState({
+        products: json
+      });
+    }).catch((ex) => {
+      console.log(ex);
+    })
+
+  }
+
+  render() {
+    return (
+      <div>
+        { this.state.products && <Products products={this.state.products} /> }
+      </div>
+      )
+  }
+
+}
+
+
 
 export default ProductsContainer;
