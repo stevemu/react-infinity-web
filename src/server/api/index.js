@@ -33,21 +33,29 @@ router.post('/products/', function(req, res) {
 
 
 
-
 // orders
 
-// router.get('/orders', function(req, res) {
-//   var orders = require(`${MOCK_PATH}orders.json`);
-//   res.json(orders);
-// });
-//
-// router.get('/orders/:id', function(req, res) {
-//   var orders = require(`${MOCK_PATH}orders.json`);
-//   var order = _.find(orders, function(order) {
-//     return order.id == req.params.id;
-//   });
-//   res.json(order);
-// });
+// get all orders
+router.get('/orders', function(req, res) {
+  var orders = dbUtil.getOrders();
+  res.json(orders);
+});
+
+// get one order
+router.get('/orders/:id', function(req, res) {
+  const order = dbUtil.getOrderById(req.params.id);
+  res.json(order);
+});
+
+// post a new order
+router.post('/orders/', function(req, res) {
+  var order = req.body;
+  order.id = uuid();
+  dbUtil.addProduct(order);
+  res.json({status: "success", id: order.id});
+});
+
+
 
 // image upload
 

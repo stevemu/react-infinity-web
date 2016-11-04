@@ -17,7 +17,7 @@ Returns json data about a single product
     ```json
     
       {
-        "id": 1,
+        "id": "1",
         "model": "Evoke",
         "price": 4000,
         "profileImage": "Evoke_black_1.png",
@@ -44,19 +44,7 @@ Returns json data about a single product
 * **Sample Call:**
 
    ```javascript
-   $.ajax({
-      url: `http://localhost:3000/api/products/${this.props.params.productId}`,
-      dataType: 'json',
-      success: function(data) {
-        console.log(data);
-        this.setState({
-          product: data
-        });
-      }.bind(this),
-      error: function(err) {
-        console.log('error: ', err);
-      }.bind(this)
-    });
+
    ```
 
 * **Notes:**

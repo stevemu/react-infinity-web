@@ -1,4 +1,17 @@
 import React, { Component } from 'react';
+import { Table } from 'react-bootstrap';
+
+class OrdersContainer extends Component {
+
+  constructor() {
+    super();
+  }
+
+  componentDidMount() {
+
+  }
+
+}
 
 class Orders extends Component {
   render() {

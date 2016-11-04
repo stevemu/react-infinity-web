@@ -18,8 +18,8 @@ Returns json data of all orders
     [
       {
         "name": "Qi",
-        "id": 1,
-        "itemId": 1,
+        "id": "1",
+        "itemId": "1",
         "color": "black",
         "price": 2555.3,
         "shipTo": {

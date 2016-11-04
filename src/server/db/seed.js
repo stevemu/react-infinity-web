@@ -26,3 +26,55 @@ products.forEach((product, index) => {
 });
 
 //todo: seed orders
+
+var orders = [
+  {
+    "id": "1",
+    "name": "Qi",
+    "itemId": 1,
+    "color": "black",
+    "price": 255325.3,
+    "shipTo": {
+      "name": "Jane Smith",
+      "address": "123 Maple Street",
+      "city": "Pretendville",
+      "state": "NY",
+      "zip": "12345"
+    },
+    "billTo": {
+      "name": "Jane Smith",
+      "address": "123 Maple Street",
+      "city": "Pretendville",
+      "state": "NY",
+      "zip": "12345"
+    }
+  },
+  {
+    "id": "2",
+    "name": "Osa",
+    "itemId": 1,
+    "color": "black",
+    "price": 2512355.3,
+    "shipTo": {
+      "name": "Jane Smith",
+      "address": "123 Maple Street",
+      "city": "Pretendville",
+      "state": "NY",
+      "zip": "12345"
+    },
+    "billTo": {
+      "name": "Jane Smith",
+      "address": "123 Maple Street",
+      "city": "Pretendville",
+      "state": "NY",
+      "zip": "12345"
+    }
+  }
+];
+
+orders.forEach((order, index) => {
+  const orderInDb = db.get('orders').getById(order.id).value();
+  if (!orderInDb) { // if order does not exists already
+    db.get('orders').push(order).value(); // add to db
+  }
+});
