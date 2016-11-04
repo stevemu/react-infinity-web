@@ -40,7 +40,7 @@ class Products extends Component {
     return this.props.products.map((product) => {
       return (
         <div key={product.id} className="col-xs-6 col-sm-3 product-profile">
-          <ProductImage className="img-responsive product-img" fileName={product.profileImage}/>
+          <ProductImage fileName={product.profileImage}/>
           <h4><Link to={`/dashboard/products/${product.id}`}>{ product.model }</Link></h4>
           <span className="text-muted">Price: { product.price }</span>
         </div>

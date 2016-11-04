@@ -66,7 +66,6 @@ class AddProduct extends Component {
     e.preventDefault();
     const newProduct = this.state;
     newProduct.price = parseFloat(newProduct.price);
-    console.log(newProduct);
     fetch(PRODUCTS_ENDPOINT, {
       method: 'POST',
       headers: {

@@ -34,6 +34,14 @@ Post a json data about one new product
 * **Sample Call:**
 
    ```javascript
+      fetch(PRODUCTS_ENDPOINT, {
+         method: 'POST',
+         headers: {
+           'Accept': 'application/json',
+           'Content-Type': 'application/json'
+         },
+         body: JSON.stringify(newProduct)
+       })
 
    ```
 
