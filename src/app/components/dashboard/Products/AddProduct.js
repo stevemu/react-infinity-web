@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
-import { UPLOADS_ENDPOINT, UPLOADS_URL, PRODUCTS_ENDPOINT } from '../../util/urls';
-import FieldGroup from '../FieldGroup';
+import { UPLOADS_ENDPOINT, UPLOADS_URL, PRODUCTS_ENDPOINT } from '../../../util/urls';
+import FieldGroup from '../../FieldGroup';
+import {browserHistory} from 'react-router';
 
 class AddProduct extends Component {
 
@@ -64,6 +65,9 @@ class AddProduct extends Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(newProduct)
+    }).then((res) => {
+      // go back to product lists
+      browserHistory.push("/dashboard/products");
     })
   }
 

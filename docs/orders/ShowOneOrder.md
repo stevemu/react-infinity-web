@@ -1,10 +1,10 @@
-**Show all orders**
+**Show one product**
 ----
-Returns json data of all orders
+Returns json data about a single product
 
 * **URL**
 
-  <_/api/orders_>
+  <_/api/products/:id_>
 
 * **Method:**
 
@@ -15,8 +15,7 @@ Returns json data of all orders
   * **Code:** 200 <br />
     **Content:** 
     ```json
-    [
-      {
+     {
         "name": "Qi",
         "id": "1",
         "itemId": "1",
@@ -37,8 +36,15 @@ Returns json data of all orders
           "zip"   : "12345"
         }
       }
-    ]
+      }
+    
     ```
+ 
+* **Error Response:**
+
+  * **Code:** 401 UNAUTHORIZED <br />
+    **Content:** `{ error : "Log in" }`
+    **not implemented**
 
 * **Sample Call:**
 

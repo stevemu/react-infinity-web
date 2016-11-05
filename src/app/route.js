@@ -8,11 +8,11 @@ import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 
 // dashboard components
-import AddProduct from './components/dashboard/AddProduct';
-import OrdersContainer from './components/dashboard/OrdersContainer';
-import OrderDetailContainer from './components/dashboard/OrderDetailContainer';
-import ProductsContainer from './components/dashboard/ProductsContainer';
-import ProductDetailContainer from './components/dashboard/ProductDetailContainer';
+import AddProduct from './components/dashboard/Products/AddProduct';
+import OrdersContainer from './components/dashboard/Orders/OrdersContainer';
+import OrderDetailContainer from './components/dashboard/Orders/OrderDetailContainer';
+import ProductsContainer from './components/dashboard/Products/ProductsContainer';
+import ProductDetailContainer from './components/dashboard/Products/ProductDetailContainer';
 import Settings from './components/dashboard/Settings';
 
 
@@ -25,9 +25,10 @@ const route = (
         <IndexRedirect to="/dashboard/products" />
         <Route path="/dashboard/products" component={ProductsContainer} />
         <Route path="/dashboard/products/:productId" component={ProductDetailContainer} />
+        <Route path="/dashboard/add-product" component={AddProduct}/>
+
         <Route path="/dashboard/orders" component={OrdersContainer} />
         <Route path="/dashboard/orders/:orderId" component={OrderDetailContainer} />
-        <Route path="/dashboard/add-product" component={AddProduct}/>
         <Route path="/dashboard/settings" component={Settings} />
       </Route>
       <Route path="*" component={Home} />

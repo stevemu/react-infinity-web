@@ -16,22 +16,7 @@ Returns json data of all products
     **Content:** 
     ```json
     [
-      {
-        "id": 1,
-        "model": "Evoke",
-        "price": 4000,
-        "profileImage": "Evoke_black_1.png",
-        "images": {
-          "black": [
-            "Evoke_black_1.png",
-            "Evoke_black_2.png"
-          ],
-          "brown": [
-            "Evoke_brown_1.png",
-            "Evoke_brown_2.png"
-          ]
-        }
-      }
+      OneProduct
     ]
     ```
  

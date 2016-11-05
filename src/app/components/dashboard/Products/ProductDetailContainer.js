@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import ProductImage from '../../ProductImage';
-import { PRODUCTS_ENDPOINT } from '../../util/urls';
+import ProductImage from '../../../ProductImage';
+import { PRODUCTS_ENDPOINT } from '../../../util/urls';
 import { Col, Row, Button } from 'react-bootstrap';
 
 class ProductDetailContainer extends Component {

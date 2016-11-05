@@ -4,7 +4,7 @@ class Settings extends Component {
   render() {
     return (
       <div className="">
-        <h1>Settings</h1>
+        <h2>Settings</h2>
 
         <h2>Change Password</h2>
         <div className="input-group">

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Table } from 'react-bootstrap';
-import { ORDERS_ENDPOINT } from '../../util/urls';
+import { ORDERS_ENDPOINT } from '../../../util/urls';
 import { Link } from 'react-router';
 
 class Orders extends Component {

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
 import $ from 'jquery';
-import ProductImage from '../../ProductImage';
-import { PRODUCTS_ENDPOINT } from '../../util/urls';
-import {Row, Col} from 'react-bootstrap';
+import ProductImage from '../../../ProductImage';
+import { PRODUCTS_ENDPOINT } from '../../../util/urls';
+import {Row, Col, Button} from 'react-bootstrap';
 
 
 class Products extends Component {
@@ -62,6 +62,9 @@ class ProductsContainer extends Component {
   render() {
     return (
       <div>
+        <Link to="/dashboard/add-product/">
+          <Button className="back" bsStyle="primary" bsSize="small">Add Product</Button>
+        </Link>
         { this.state.products && <Products products={this.state.products} /> }
       </div>
       )
