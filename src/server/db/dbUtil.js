@@ -23,6 +23,14 @@ module.exports.addProduct = (product) => {
   db.get('products').push(product).value();
 };
 
+module.exports.updateProduct = (id, product) => {
+  db.get('products').getById(id).assign(product).value();
+};
+
+module.exports.deleteProduct = (id) => {
+  db.get('products').remove({id: id}).value();
+};
+
 // orders
 
 module.exports.getOrders = () => {
@@ -37,4 +45,12 @@ module.exports.getOrderById = (id) => {
 
 module.exports.addOrder = (order) => {
   db.get('orders').push(order).value();
+};
+
+module.exports.updateOrder = (id, order) => {
+  db.get('orders').getById(id).assign(order).value();
+};
+
+module.exports.deleteOrder = (id) => {
+  db.get('orders').remove({id: id}).value();
 };

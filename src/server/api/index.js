@@ -31,6 +31,21 @@ router.post('/products/', function(req, res) {
   res.json({status: "success", id: product.id});
 });
 
+// update a product
+router.put('/products/:id', function(req, res) {
+  var product = req.body;
+  var id = req.params.id;
+  dbUtil.updateProduct(id, product);
+  res.json({status: "success"});
+});
+
+// delete a product
+router.delete('/products/:id', function(req, res) {
+  var id = req.params.id;
+  dbUtil.deleteProduct(id);
+  res.json({status: "success"});
+});
+
 
 
 // orders
@@ -55,7 +70,20 @@ router.post('/orders/', function(req, res) {
   res.json({status: "success", id: order.id});
 });
 
+// update a order
+router.put('/orders/:id', function(req, res) {
+  var order = req.body;
+  var id = req.params.id;
+  dbUtil.updateOrder(id, order);
+  res.json({status: "success"});
+});
 
+// delete a product
+router.delete('/orders/:id', function(req, res) {
+  var id = req.params.id;
+  dbUtil.deleteOrder(id);
+  res.json({status: "success"});
+});
 
 // image upload
 
