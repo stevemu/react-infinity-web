@@ -24,13 +24,3 @@ image: the file
         "newFilename": "productImage-324234.png"
     }
     ```
-
-* **Sample Call:**
-
-   ```javascript
-
-   ```
-
-* **Notes:**
-
- 

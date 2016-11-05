@@ -13,11 +13,7 @@ Post a json data about one new product
 * **Data Params**
 
   ```json
-  {
-    "model": "it900",
-    "price": 900,
-    "profileImage": "1223423.png"
-  };
+  OneProduct without id field
   ```
   
 * **Success Response:**
@@ -26,25 +22,8 @@ Post a json data about one new product
     **Content:** 
     ```json
     {
-        "status": "success"
+        "status": "success",
+        "id": "3"
     }
     ```
- 
-
-* **Sample Call:**
-
-   ```javascript
-      fetch(PRODUCTS_ENDPOINT, {
-         method: 'POST',
-         headers: {
-           'Accept': 'application/json',
-           'Content-Type': 'application/json'
-         },
-         body: JSON.stringify(newProduct)
-       })
-
-   ```
-
-* **Notes:**
-
  

@@ -40,18 +40,3 @@ Returns json data about a single product
     
     ```
  
-* **Error Response:**
-
-  * **Code:** 401 UNAUTHORIZED <br />
-    **Content:** `{ error : "Log in" }`
-    **not implemented**
-
-* **Sample Call:**
-
-   ```javascript
-
-   ```
-
-* **Notes:**
-
- 

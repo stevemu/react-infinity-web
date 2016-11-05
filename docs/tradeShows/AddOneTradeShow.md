@@ -1,29 +1,26 @@
-**Add one order**
+**Add one trade show**
 ----
-Post a json data about one new order
 
 * **URL**
 
-  <_/api/orders_>
+  <_/api/trade-shows/_>
 
 * **Method:**
 
   `POST` 
-
-* **Data Params**
-
-  ```json
-    OneOrder without id field
-  ```
   
+* **Data Params**
+  
+    ```json
+    OneTradeShow without id field
+    ```
+
 * **Success Response:**
 
   * **Code:** 200 <br />
     **Content:** 
     ```json
-    {
+     {
         "status": "success"
-    }
+     }
     ```
- 
- 

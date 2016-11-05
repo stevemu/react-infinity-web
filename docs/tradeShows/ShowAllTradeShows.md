@@ -1,10 +1,9 @@
-**Show all products**
+**Show all trade shows**
 ----
-Returns json data of all products
 
 * **URL**
 
-  <_/api/products_>
+  <_/api/trade-shows/_>
 
 * **Method:**
 
@@ -15,8 +14,8 @@ Returns json data of all products
   * **Code:** 200 <br />
     **Content:** 
     ```json
-    [
-      OneProduct
-    ]
+     [
+       OneTradeShow, OneTradeShow
+     ]
     ```
  
