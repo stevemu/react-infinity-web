@@ -56,9 +56,10 @@ class ProductDetailContainer extends Component {
   handleDelete() {
     fetch(this.state.productUrl, {
       method: 'DELETE'
+    }).then((res)=> {
+      browserHistory.push('/dashboard/products');
     });
-    browserHistory.push('/dashboard/products');
-    window.location.reload();
+
   }
 
   render() {

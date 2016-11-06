@@ -64,23 +64,6 @@ class ProductsContainer extends Component {
     })
   }
 
-  // so as to fetch data when coming back here from product detail after a deletion
-  componentWillUpdate() {
-    // this.forceUpdate();
-  }
-
-  componentDidUpdate() {
-    // console.log('here');
-    // this.fetchProducts();
-
-    //
-  }
-
-  shouldComponentUpdate() {
-    return true;
-  }
-
-
   render() {
     return (
       <div>
