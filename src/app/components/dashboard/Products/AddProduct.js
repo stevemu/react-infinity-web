@@ -93,14 +93,16 @@ class AddProduct extends Component {
             value={this.state.price}
             onChange={this.onPriceChange.bind(this)}
           />
-          <Dropzone
-            multiple={false}
-            accept="image/*"
-            onDrop={this.onImageDrop.bind(this)}>
-            <p>Drop the product image</p>
-            {this.productImagePreview()}
-          </Dropzone>
-          <Button type="submit">
+          <div className="bottom-margin">
+            <Dropzone
+              multiple={false}
+              accept="image/*"
+              onDrop={this.onImageDrop.bind(this)}>
+              <p>Drop the product image</p>
+              {this.productImagePreview()}
+            </Dropzone>
+          </div>
+          <Button type="submit" bsStyle="primary">
             Submit
           </Button>
         </form>
