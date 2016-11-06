@@ -5,17 +5,44 @@ import { PRODUCTS_ENDPOINT } from '../../../util/urls';
 import { Col, Row, Button } from 'react-bootstrap';
 import { browserHistory } from 'react-router';
 import BackToListButton from './BackToListButton';
+import { RIEToggle, RIEInput, RIETextArea, RIENumber, RIETags, RIESelect } from 'riek'
 
 
 class ProductDetail extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      product: props.product
+    };
+    this.onChange = this.onChange.bind(this);
+  }
+
+  onChange(val) {
+    console.log(val);
+  }
 
   render() {
     return (
       <div>
         <Row><Col xs={6} md={6}><ProductImage fileName={this.props.product.profileImage}/></Col></Row>
-        <h2>Model: {this.props.product.model}</h2>
-        <p>Product Id: {this.props.product.id}</p>
-        <p>Price: { this.props.product.price }</p>
+        <p>ID: {this.props.product.id}</p>
+
+        <span>Model: </span>
+        <RIEInput
+          value={this.state.product.model}
+          change={this.onChange}
+          propName="model"
+          validate={this.isStringAcceptable}
+        /><br />
+
+        <span>Price: </span>
+        <RIENumber
+          value={this.state.product.price}
+          change={this.onChange}
+          propName="price"
+        /><br />
+
       </div>
     );
   }
@@ -63,16 +90,11 @@ class ProductDetailContainer extends Component {
 
   }
 
-  handleEdit() {
-    console.log('edit here');
-  }
-
   render() {
     return (
       <div>
         <BackToListButton />
         {this.state.product && <ProductDetail product={this.state.product} />}
-        <Button bsStyle="primary" onClick={this.handleEdit.bind(this)}>Edit</Button>
         <Button bsStyle="danger" onClick={this.handleDelete.bind(this)}>Delete</Button>
       </div>
     )
