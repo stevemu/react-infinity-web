@@ -23,6 +23,11 @@ app.use(function(req, res, next) {
 
 // api
 var apiRouter = require('./api');
+
+// app.param('collection', (req, res, next, collection) => {
+//   console.log(collection);
+//   next()
+// });
 app.use('/api', apiRouter);
 
 // webpack middle for hot reloading during development

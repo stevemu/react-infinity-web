@@ -7,13 +7,29 @@ var _ = require('underscore');
 const uuid = require('uuid');
 
 require('../db/seed'); // seed the db for sample data
+
+
 const dbUtil = require('../db/dbUtil');
 const db = dbUtil.db;
 
-app.param('')
+router.param('collection', (req, res, next, collection) => {
+  const arr = db.get(collection);
+  req.collection = arr;
+  next();
+});
+
+router.param('id', (req, res, next, id) => {
+  const result = req.collection.getById(id);
+  req.single = result;
+  next();
+});
+
+router.get('/:collection/', (req, res) => {
+  res.json(req.collection.value());
+});
 
 router.get('/:collection/:id', (req, res) => {
-
+  res.json(req.single.value());
 });
 
 //
