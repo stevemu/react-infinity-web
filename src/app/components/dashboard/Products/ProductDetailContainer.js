@@ -58,6 +58,7 @@ class ProductDetailContainer extends Component {
       method: 'DELETE'
     });
     browserHistory.push('/dashboard/products');
+    window.location.reload();
   }
 
   render() {

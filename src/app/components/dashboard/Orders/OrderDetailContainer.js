@@ -83,6 +83,7 @@ class OrderDetailContainer extends Component {
       method: 'DELETE'
     });
     browserHistory.push('/dashboard/orders');
+
   }
 
   render() {
