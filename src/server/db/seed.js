@@ -2,6 +2,8 @@
 const dbUtil = require("./dbUtil");
 const db = dbUtil.db;
 
+// products
+
 var products = [
   {
     "id": "1",
@@ -25,7 +27,7 @@ products.forEach((product, index) => {
   }
 });
 
-//todo: seed orders
+// orders
 
 var orders = [
   {
@@ -76,5 +78,26 @@ orders.forEach((order, index) => {
   const orderInDb = db.get('orders').getById(order.id).value();
   if (!orderInDb) { // if order does not exists already
     db.get('orders').push(order).value(); // add to db
+  }
+});
+
+// trade shows
+var tradeShows = [
+  {
+    id: "1",
+    city: "quincy",
+    state: "ma"
+  },
+  {
+    id: "2",
+    city: "bronx",
+    state: "ny"
+  }
+];
+
+tradeShows.forEach((show, index) => {
+  const tradeShowInDb = db.get('tradeShows').getById(show.id).value();
+  if (!tradeShowInDb) { // if order does not exists already
+    db.get('tradeShows').push(show).value(); // add to db
   }
 });

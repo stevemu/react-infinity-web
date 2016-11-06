@@ -4,7 +4,7 @@ var low = require('lowdb');
 var db = low('db.json');
 
 db._.mixin(require('underscore-db')); // for getById
-db.defaults({ products: [], orders: []}).value(); // define default schema
+db.defaults({ products: [], orders: [], tradeShows: []}).value(); // define default schema
 
 module.exports.db = db;
 
@@ -53,4 +53,28 @@ module.exports.updateOrder = (id, order) => {
 
 module.exports.deleteOrder = (id) => {
   db.get('orders').remove({id: id}).value();
+};
+
+// trade shows
+
+module.exports.getTradeShows = () => {
+  const tradeShows = db.get('tradeShows').value();
+  return tradeShows;
+};
+
+module.exports.getTradeShowById = (id) => {
+  const show = db.get('tradeShows').getById(id).value();
+  return show;
+};
+
+module.exports.addTradeShow = (order) => {
+  db.get('tradeShows').push(order).value();
+};
+
+module.exports.updateTradeShow = (id, order) => {
+  db.get('tradeShows').getById(id).assign(order).value();
+};
+
+module.exports.deleteTradeShow = (id) => {
+  db.get('tradeShows').remove({id: id}).value();
 };
