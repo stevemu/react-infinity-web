@@ -4,6 +4,7 @@ import ProductImage from '../../../ProductImage';
 import { PRODUCTS_ENDPOINT } from '../../../util/urls';
 import { Col, Row, Button } from 'react-bootstrap';
 import { browserHistory } from 'react-router';
+import BackToListButton from './BackToListButton';
 
 
 class ProductDetail extends Component {
@@ -65,9 +66,7 @@ class ProductDetailContainer extends Component {
   render() {
     return (
       <div>
-        <Link to="/dashboard/products/">
-          <Button className="back" bsStyle="primary" bsSize="small">Back to Product List</Button>
-        </Link>
+        <BackToListButton />
         <ProductDetail productId={this.props.params.productId} product={this.state.product} />
         <Button bsStyle="danger" onClick={this.handleDelete.bind(this)}>Delete</Button>
       </div>

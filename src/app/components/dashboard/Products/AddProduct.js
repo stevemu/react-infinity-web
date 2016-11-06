@@ -5,6 +5,7 @@ import request from 'superagent';
 import { UPLOADS_ENDPOINT, UPLOADS_URL, PRODUCTS_ENDPOINT } from '../../../util/urls';
 import FieldGroup from '../../FieldGroup';
 import {browserHistory} from 'react-router';
+import BackToListButton from './BackToListButton';
 
 class AddProduct extends Component {
 
@@ -73,34 +74,38 @@ class AddProduct extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit.bind(this)}>
-        <h2>Add Product</h2>
-        <FieldGroup
-          id="model"
-          type="text"
-          label="Model"
-          placeholder="model"
-          value={this.state.model}
-          onChange={this.onModelChange.bind(this)}
-        />
-        <FieldGroup
-          type="text"
-          label="Price"
-          placeholder="price"
-          value={this.state.price}
-          onChange={this.onPriceChange.bind(this)}
-        />
-        <Dropzone
-          multiple={false}
-          accept="image/*"
-          onDrop={this.onImageDrop.bind(this)}>
-          <p>Drop the product image</p>
-          {this.productImagePreview()}
-        </Dropzone>
-        <Button type="submit">
-          Submit
-        </Button>
-      </form>
+      <div>
+        <BackToListButton />
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          <h2>Add Product</h2>
+          <FieldGroup
+            id="model"
+            type="text"
+            label="Model"
+            placeholder="model"
+            value={this.state.model}
+            onChange={this.onModelChange.bind(this)}
+          />
+          <FieldGroup
+            type="text"
+            label="Price"
+            placeholder="price"
+            value={this.state.price}
+            onChange={this.onPriceChange.bind(this)}
+          />
+          <Dropzone
+            multiple={false}
+            accept="image/*"
+            onDrop={this.onImageDrop.bind(this)}>
+            <p>Drop the product image</p>
+            {this.productImagePreview()}
+          </Dropzone>
+          <Button type="submit">
+            Submit
+          </Button>
+        </form>
+      </div>
+
     );
   }
 }

@@ -54,10 +54,9 @@ class OrdersContainer extends Component {
   constructor() {
     super();
     this.state = {
-      orders: []
+      orders: null
     };
 
-    this.fetchOrders = this.fetchOrders.bind(this);
   }
 
   fetchOrders() {
@@ -76,14 +75,12 @@ class OrdersContainer extends Component {
     this.fetchOrders();
   }
 
-  // so as to fetch data when coming back here from order detail after a deletion
-  componentWillUpdate() {
-    this.fetchOrders();
-  }
 
   render() {
     return (
-      <Orders orders={this.state.orders} />
+      <div>
+        { this.state.orders && <Orders orders={this.state.orders} /> }
+      </div>
     )
   }
 
