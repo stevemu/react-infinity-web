@@ -15,9 +15,10 @@ app.use(function(req, res, next) {
     // an API server in conjunction with something like webpack-dev-server.
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    res.setHeader('Access-Control-Allow-Methods', 'DELETE');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Credentials', '*');
 
-    // Disable caching so we'll always get the latest comments.
+    // Disable caching so we'll always get the latest data.
     res.setHeader('Cache-Control', 'no-cache');
     next();
 });

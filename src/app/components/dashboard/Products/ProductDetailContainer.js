@@ -18,15 +18,18 @@ class ProductDetail extends Component {
     this.onChange = this.onChange.bind(this);
   }
 
-  onChange(val) {
-    console.log(val);
+  onChange(newValObj) {
+    var product = this.state.product;
+    Object.assign(product, newValObj);
+    this.setState({product: product});
+    this.props.onChange(product);
   }
 
   render() {
     return (
       <div>
-        <Row><Col xs={6} md={6}><ProductImage fileName={this.props.product.profileImage}/></Col></Row>
-        <p>ID: {this.props.product.id}</p>
+        <Row><Col xs={6} md={6}><ProductImage fileName={this.state.product.profileImage}/></Col></Row>
+        <p>ID: {this.state.product.id}</p>
 
         <span>Model: </span>
         <RIEInput
@@ -36,7 +39,7 @@ class ProductDetail extends Component {
           validate={this.isStringAcceptable}
         /><br />
 
-        <span>Price: </span>
+        <span>Price: $</span>
         <RIENumber
           value={this.state.product.price}
           change={this.onChange}
@@ -90,11 +93,24 @@ class ProductDetailContainer extends Component {
 
   }
 
+  handleChange(product) {
+    fetch(this.productUrl, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(product)
+    }).then((res)=> {
+      // console.log(res);
+    });
+  }
+
   render() {
     return (
       <div>
         <BackToListButton />
-        {this.state.product && <ProductDetail product={this.state.product} />}
+        {this.state.product && <ProductDetail product={this.state.product} onChange={this.handleChange.bind(this)} />}
         <Button bsStyle="danger" onClick={this.handleDelete.bind(this)}>Delete</Button>
       </div>
     )
