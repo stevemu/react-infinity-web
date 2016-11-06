@@ -46,7 +46,10 @@ class ProductsContainer extends Component {
   }
 
   componentDidMount() {
+    this.fetchProducts();
+  }
 
+  fetchProducts() {
     fetch(PRODUCTS_ENDPOINT).then((res) => {
       return res.json();
     }).then((json) => {
@@ -56,7 +59,11 @@ class ProductsContainer extends Component {
     }).catch((ex) => {
       console.log(ex);
     })
+  }
 
+  // so as to fetch data when coming back here from product detail after a deletion
+  componentWillUpdate() {
+    this.fetchProducts();
   }
 
   render() {
