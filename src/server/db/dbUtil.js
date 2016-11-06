@@ -7,7 +7,8 @@ db._.mixin(require('underscore-db')); // for getById
 db.defaults({
   products: [],
   orders: [],
-  tradeShows: []
+  tradeShows: [],
+  taxRateLists: []
 }).value(); // define default schema
 
 module.exports.db = db;

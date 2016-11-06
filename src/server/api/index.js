@@ -10,7 +10,7 @@ require('../db/seed'); // seed the db for sample data
 const db = require('../db/dbUtil').db;
 
 
-//CRUD API for products, orders, tradeShows
+//CRUD API for products, orders, tradeShows, taxRateLists
 
 router.param('collection', (req, res, next, collection) => {
   const arr = db.get(collection);

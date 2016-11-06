@@ -101,3 +101,29 @@ tradeShows.forEach((show, index) => {
     db.get('tradeShows').push(show).value(); // add to db
   }
 });
+
+// trade shows
+var taxRates = [
+  {
+    id: "1",
+    rates: {
+      "MA": 0.2,
+      "NY": 0.5
+    }
+  },
+  {
+    id: "2",
+    rates: {
+      "MA": 0.1,
+      "NY": 0.2,
+      "CA": 0.02
+    }
+  }
+];
+
+taxRates.forEach((rateList, index) => {
+  const rateListInDb = db.get('taxRateLists').getById(rateList.id).value();
+  if (!rateListInDb) { // if obj does not exists already
+    db.get('taxRateLists').push(rateList).value(); // add to db
+  }
+});
