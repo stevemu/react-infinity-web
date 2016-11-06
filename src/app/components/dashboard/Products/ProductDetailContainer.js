@@ -33,13 +33,13 @@ class ProductDetailContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      product: {},
-      productUrl: `${PRODUCTS_ENDPOINT}${props.params.id}`
+      product: null
     };
+    this.productUrl = `${PRODUCTS_ENDPOINT}${props.params.id}`;
   }
 
   fetchProduct() {
-    fetch(this.state.productUrl).then((res) => {
+    fetch(this.productUrl).then((res) => {
       return res.json();
     }).then((json) => {
       this.setState({
@@ -55,7 +55,7 @@ class ProductDetailContainer extends Component {
   }
 
   handleDelete() {
-    fetch(this.state.productUrl, {
+    fetch(this.productUrl, {
       method: 'DELETE'
     }).then((res)=> {
       browserHistory.push('/dashboard/products');
@@ -67,7 +67,8 @@ class ProductDetailContainer extends Component {
     return (
       <div>
         <BackToListButton />
-        <ProductDetail productId={this.props.params.productId} product={this.state.product} />
+        {this.state.product && <ProductDetail product={this.state.product} />}
+        <Button bsStyle="danger" onClick={this.handleDelete.bind(this)}>Delete</Button>
         <Button bsStyle="danger" onClick={this.handleDelete.bind(this)}>Delete</Button>
       </div>
     )
