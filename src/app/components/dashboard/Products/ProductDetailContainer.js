@@ -63,12 +63,16 @@ class ProductDetailContainer extends Component {
 
   }
 
+  handleEdit() {
+    console.log('edit here');
+  }
+
   render() {
     return (
       <div>
         <BackToListButton />
         {this.state.product && <ProductDetail product={this.state.product} />}
-        <Button bsStyle="danger" onClick={this.handleDelete.bind(this)}>Delete</Button>
+        <Button bsStyle="primary" onClick={this.handleEdit.bind(this)}>Edit</Button>
         <Button bsStyle="danger" onClick={this.handleDelete.bind(this)}>Delete</Button>
       </div>
     )
