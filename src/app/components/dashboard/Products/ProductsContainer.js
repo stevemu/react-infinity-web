@@ -36,6 +36,9 @@ Products.propTypes = {
   products: React.PropTypes.array
 };
 
+
+
+
 class ProductsContainer extends Component {
 
   constructor() {
@@ -62,8 +65,17 @@ class ProductsContainer extends Component {
   }
 
   // so as to fetch data when coming back here from product detail after a deletion
-  componentWillUpdate() {
-    this.fetchProducts();
+  // componentWillUpdate() {
+  //
+  // }
+
+  componentDidUpdate() {
+    console.log('here');
+    // this.fetchProducts();
+  }
+
+  componentWillReceiveProps() {
+    console.log('here2');
   }
 
   render() {

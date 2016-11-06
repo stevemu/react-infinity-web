@@ -4,6 +4,7 @@ import ProductImage from '../../../ProductImage';
 import { ORDERS_ENDPOINT } from '../../../util/urls';
 import { Col, Row, Button } from 'react-bootstrap';
 import { Panel } from 'react-bootstrap';
+import { browserHistory } from 'react-router';
 
 // a panel shows name, address, city, state and zip
 class AddressPanel extends Component {
@@ -49,22 +50,23 @@ class OrderDetail extends Component {
 }
 
 OrderDetail.propTypes = {
-  order: React.PropTypes.object,
-  orderId: React.PropTypes.string
+  order: React.PropTypes.object
 };
 
 class OrderDetailContainer extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      order: null
-    }
+      order: null,
+      orderUrl: `${ORDERS_ENDPOINT}${props.params.id}`
+    };
+
   }
 
   componentDidMount() {
 
-    fetch(`${ORDERS_ENDPOINT}${this.props.params.orderId}`).then((res) => {
+    fetch(this.state.orderUrl).then((res) => {
       return res.json();
     }).then((json) => {
       this.setState({
@@ -76,10 +78,18 @@ class OrderDetailContainer extends Component {
 
   }
 
+  handleDelete() {
+    fetch(this.state.orderUrl, {
+      method: 'DELETE'
+    });
+    browserHistory.push('/dashboard/orders');
+  }
+
   render() {
     return (
       <div>
-        { this.state.order && <OrderDetail orderId={this.props.params.orderId} order={this.state.order} />}
+        { this.state.order && <OrderDetail order={this.state.order} />}
+        <Button bsStyle="danger" onClick={this.handleDelete.bind(this)}>Delete</Button>
       </div>
     )
 

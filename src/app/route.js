@@ -24,10 +24,10 @@ const route = (
       <Route path="/dashboard" component={Dashboard}>
         <IndexRedirect to="/dashboard/products" />
         <Route path="/dashboard/products" component={ProductsContainer} />
-        <Route path="/dashboard/products/:productId" component={ProductDetailContainer} />
+        <Route path="/dashboard/products/:id" component={ProductDetailContainer} />
         <Route path="/dashboard/add-product" component={AddProduct}/>
         <Route path="/dashboard/orders" component={OrdersContainer} />
-        <Route path="/dashboard/orders/:orderId" component={OrderDetailContainer} />
+        <Route path="/dashboard/orders/:id" component={OrderDetailContainer} />
         <Route path="/dashboard/settings" component={Settings} />
       </Route>
       <Route path="*" component={Home} />

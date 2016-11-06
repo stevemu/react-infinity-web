@@ -55,10 +55,12 @@ class OrdersContainer extends Component {
     super();
     this.state = {
       orders: []
-    }
+    };
+
+    this.fetchOrders = this.fetchOrders.bind(this);
   }
 
-  componentDidMount() {
+  fetchOrders() {
     fetch(ORDERS_ENDPOINT).then((res) => {
       return res.json();
     }).then((json) => {
@@ -68,6 +70,15 @@ class OrdersContainer extends Component {
     }).catch((ex) => {
       console.log(ex);
     })
+  }
+
+  componentDidMount() {
+    this.fetchOrders();
+  }
+
+  // so as to fetch data when coming back here from order detail after a deletion
+  componentWillUpdate() {
+    this.fetchOrders();
   }
 
   render() {

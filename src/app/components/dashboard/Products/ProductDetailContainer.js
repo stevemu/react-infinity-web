@@ -5,17 +5,39 @@ import { PRODUCTS_ENDPOINT } from '../../../util/urls';
 import { Col, Row, Button } from 'react-bootstrap';
 import { browserHistory } from 'react-router';
 
+
+class ProductDetail extends Component {
+
+  render() {
+    return (
+      <div>
+        <Row><Col xs={6} md={6}><ProductImage fileName={this.props.product.profileImage}/></Col></Row>
+        <h2>Model: {this.props.product.model}</h2>
+        <p>Product Id: {this.props.product.id}</p>
+        <p>Price: { this.props.product.price }</p>
+      </div>
+    );
+  }
+}
+
+ProductDetail.propTypes = {
+  product: React.PropTypes.object
+};
+
+
+
+
 class ProductDetailContainer extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
       product: {},
-      productUrl: `${PRODUCTS_ENDPOINT}${props.params.productId}`
-    }
+      productUrl: `${PRODUCTS_ENDPOINT}${props.params.id}`
+    };
   }
 
-  fetchProducts() {
+  fetchProduct() {
     fetch(this.state.productUrl).then((res) => {
       return res.json();
     }).then((json) => {
@@ -28,7 +50,7 @@ class ProductDetailContainer extends Component {
   }
 
   componentDidMount() {
-    this.fetchProducts();
+    this.fetchProduct();
   }
 
   handleDelete() {
@@ -51,28 +73,6 @@ class ProductDetailContainer extends Component {
   }
 
 }
-
-
-class ProductDetail extends Component {
-
-  render() {
-    return (
-      <div>
-
-        <Row><Col xs={6} md={6}><ProductImage fileName={this.props.product.profileImage}/></Col></Row>
-        <h2>Model: {this.props.product.model}</h2>
-        <p>Product Id: {this.props.productId}</p>
-        <p>Price: { this.props.product.price }</p>
-
-      </div>
-    );
-  }
-}
-
-ProductDetail.propTypes = {
-  product: React.PropTypes.object,
-  productId: React.PropTypes.string
-};
 
 export default ProductDetailContainer;
 

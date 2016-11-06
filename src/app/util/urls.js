@@ -1,5 +1,5 @@
 var isProduction = process.env.NODE_ENV == "production";
-var SERVER_PORT = process.env.SERVER_PORT || 3000;
+var SERVER_PORT = process.env.SERVER_PORT;
 
 // root urls
 export const SERVER_URL = isProduction ? "/" : `http://localhost:${SERVER_PORT}/`;
