@@ -19,7 +19,7 @@ import OrdersContainer from './components/dashboard/Orders/OrdersContainer';
 import OrderDetailContainer from './components/dashboard/Orders/OrderDetailContainer';
 
 // trade shows
-import TradeShowsContainer from './components/dashboard/tradeShows/TradeShowsContainer';
+import TradeShowsContainer from './components/dashboard/TradeShows/ShowsContainer';
 
 
 // setting
