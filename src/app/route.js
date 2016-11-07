@@ -24,6 +24,9 @@ import AddShow from './components/dashboard/TradeShows/AddShow';
 
 // tax rate lists
 import TaxRateListsContainer from './components/dashboard/TaxRateLists/TaxRateListsContainer';
+import TaxRateListDetail from './components/dashboard/TaxRateLists/TaxRateListDetail';
+import AddTaxRateLists from './components/dashboard/TaxRateLists/AddTaxRateLists';
+
 
 
 // setting
@@ -40,6 +43,8 @@ const route = (
 
         {/*tax rate lists*/}
         <Route path="/dashboard/taxRateLists" component={TaxRateListsContainer} />
+        <Route path="/dashboard/taxRateLists/:id" component={TaxRateListDetail} />
+        <Route path="/dashboard/addTaxRateLists" component={AddTaxRateLists} />
 
         {/*trade shows*/}
         <Route path="/dashboard/tradeShows" component={TradeShowsContainer} />
