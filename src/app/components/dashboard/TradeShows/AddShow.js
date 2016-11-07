@@ -1,36 +1,28 @@
-import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
-import { TRADESHOWS_ENDPOINT } from '../../../util/urls';
+import React, {Component} from 'react';
+import {Button} from 'react-bootstrap';
+import {TRADESHOWS_ENDPOINT} from '../../../util/urls';
 import FieldGroup from '../../FieldGroup';
 import {browserHistory} from 'react-router';
 
+import Form from 'react-jsonschema-form';
+
+const schema = {
+  title: "NewTradeShow",
+  type: "object",
+  properties: {
+    city: {type: "string", title: "City"},
+    state: {type: "string", title: "State"}
+  }
+};
 
 class AddShow extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      model: "",
-      price: 0
-    }
   }
 
-  onModelChange(e) {
-    this.setState({
-      model: e.target.value
-    })
-  }
-  onPriceChange(e) {
-    this.setState({
-      price: e.target.value
-    })
-  }
-
-
-//todo
-  handleSubmit(e) {
-    e.preventDefault();
-    const newShow = this.state;
+  handleSubmit(val) {
+    var newShow = val.formData;
     fetch(TRADESHOWS_ENDPOINT, {
       method: 'POST',
       headers: {
@@ -47,8 +39,13 @@ class AddShow extends Component {
   render() {
     return (
       <div>
+        <h2>New Trade Show</h2>
+        <Form
+          schema={schema}
+          onChange={()=>{console.log('change');}}
+          onSubmit={this.handleSubmit.bind(this)}
 
-
+        />
       </div>
 
     );
