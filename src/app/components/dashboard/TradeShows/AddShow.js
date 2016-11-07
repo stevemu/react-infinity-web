@@ -40,13 +40,16 @@ class AddShow extends Component {
     return (
       <div>
         <h2>New Trade Show</h2>
-        <Form
-          schema={schema}
-          onChange={()=>{console.log('change');}}
-          onSubmit={this.handleSubmit.bind(this)}
 
-        />
-      </div>
+          <Form
+            schema={schema}
+            onChange={()=>{console.log('change');}}
+            onSubmit={this.handleSubmit.bind(this)}
+
+          />
+        </div>
+
+
 
     );
   }

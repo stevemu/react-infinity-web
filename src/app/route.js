@@ -25,9 +25,7 @@ import AddShow from './components/dashboard/TradeShows/AddShow';
 // tax rate lists
 import TaxRateListsContainer from './components/dashboard/TaxRateLists/TaxRateListsContainer';
 import TaxRateListDetail from './components/dashboard/TaxRateLists/TaxRateListDetail';
-import AddTaxRateLists from './components/dashboard/TaxRateLists/AddTaxRateLists';
-
-
+import AddTaxRateLists from './components/dashboard/TaxRateLists/CreateTaxRateLists';
 
 // setting
 import Settings from './components/dashboard/Settings';
