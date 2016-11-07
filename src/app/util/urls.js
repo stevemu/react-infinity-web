@@ -12,3 +12,5 @@ export const UPLOADS_URL = `${SERVER_URL}uploads/`;
 export const UPLOADS_ENDPOINT = `${API_URL}image-upload/`;
 export const PRODUCTS_ENDPOINT = `${API_URL}products/`;
 export const ORDERS_ENDPOINT = `${API_URL}orders/`;
+export const TRADESHOWS_ENDPOINT = `${API_URL}tradeShows/`;
+export const TAXRATELISTS_ENDPOINT = `${API_URL}tradeRateLists/`;

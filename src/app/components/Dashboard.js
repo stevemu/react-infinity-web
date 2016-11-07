@@ -42,6 +42,8 @@ class Dashboard extends Component {
           <Row>
             <Col md={3} xs={3}>
               <ul className="nav nav-sidebar">
+                <li><Link to="/dashboard/tradeShows">Trade Shows</Link></li>
+                <li><Link to="/dashboard/taxRateLists">Tax Rate Lists</Link></li>
                 <li><Link to="/dashboard/products">Products</Link></li>
                 <li><Link to="/dashboard/orders">Orders</Link></li>
                 <li><Link to="/dashboard/settings">Settings</Link></li>

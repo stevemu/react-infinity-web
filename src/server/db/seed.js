@@ -106,6 +106,7 @@ tradeShows.forEach((show, index) => {
 var taxRates = [
   {
     id: "1",
+    title: "my 1",
     rates: {
       "MA": 0.2,
       "NY": 0.5
@@ -113,6 +114,7 @@ var taxRates = [
   },
   {
     id: "2",
+    title: "my 2",
     rates: {
       "MA": 0.1,
       "NY": 0.2,
