@@ -22,6 +22,9 @@ import OrderDetailContainer from './components/dashboard/Orders/OrderDetailConta
 import TradeShowsContainer from './components/dashboard/TradeShows/ShowsContainer';
 import AddShow from './components/dashboard/TradeShows/AddShow';
 
+// tax rate lists
+import TaxRateListsContainer from './components/dashboard/TaxRateLists/TaxRateListsContainer';
+
 
 // setting
 import Settings from './components/dashboard/Settings';
@@ -35,9 +38,8 @@ const route = (
       <Route path="/dashboard" component={Dashboard}>
         <IndexRedirect to="/dashboard/products" />
 
-        {/*tax rate lists*/} // todo
-        <Route path="/dashboard/taxRateLists" component={TradeShowsContainer} />
-
+        {/*tax rate lists*/}
+        <Route path="/dashboard/taxRateLists" component={TaxRateListsContainer} />
 
         {/*trade shows*/}
         <Route path="/dashboard/tradeShows" component={TradeShowsContainer} />

@@ -7,7 +7,7 @@ import {browserHistory} from 'react-router';
 import Form from 'react-jsonschema-form';
 
 const schema = {
-  title: "NewTradeShow",
+  // title: "NewTradeShow",
   type: "object",
   properties: {
     city: {type: "string", title: "City"},
