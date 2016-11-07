@@ -60,11 +60,9 @@ class TradeShowsContainer extends Component {
   }
 
   fetchTradeShows() {
-    console.log('here fetch');
     fetch(TRADESHOWS_ENDPOINT).then((res) => {
       return res.json();
     }).then((json) => {
-      console.log(json);
       this.setState({
         tradeShows: json
       });

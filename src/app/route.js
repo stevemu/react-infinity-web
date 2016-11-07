@@ -20,6 +20,7 @@ import OrderDetailContainer from './components/dashboard/Orders/OrderDetailConta
 
 // trade shows
 import TradeShowsContainer from './components/dashboard/TradeShows/ShowsContainer';
+import AddShow from './components/dashboard/TradeShows/AddShow';
 
 
 // setting
@@ -40,7 +41,7 @@ const route = (
 
         {/*trade shows*/}
         <Route path="/dashboard/tradeShows" component={TradeShowsContainer} />
-        <Route path="/dashboard/addTradeShow" component={TradeShowsContainer} /> //todo
+        <Route path="/dashboard/addTradeShow" component={AddShow} />
 
         {/*products*/}
         <Route path="/dashboard/products" component={ProductsContainer} />
